@@ -1,0 +1,12 @@
+{
+  "mnemosyne-proactive-recall": {
+    "enabled": true,
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "/usr/bin/python3 /home/ubuntu/services/jina-v5-nano/scripts/mnemosyne_hook.py",
+        "timeout": 5
+      }
+    ]
+  }
+}

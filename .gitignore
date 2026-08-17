@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+env/
+
+# Large binary model weights (keep folder & READMEs tracked)
+*.onnx
+*.bin
+*.safetensors
+*.pt
+
+# Database & local runtime data
+*.db
+*.db-journal
+*.db.gz
+data/
+backups/
+
+# Logs & scratch files
+*.log
+scratch/
+.system_generated/
