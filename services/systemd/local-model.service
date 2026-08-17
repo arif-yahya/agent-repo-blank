@@ -1,5 +1,5 @@
 [Unit]
-Description=Local Embeddings Service (Bekko v1 a8m / Jina v5 Nano)
+Description=Local Model Embedding Service (Bekko v1 a8m / Jina v5 Nano)
 After=network.target
 
 [Service]

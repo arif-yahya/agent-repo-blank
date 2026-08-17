@@ -4,7 +4,7 @@ A production-ready starter template for deploying **Google Antigravity (`agy`)**
 - **Local Dense Embeddings**: Ultra-lightweight `hotchpotch/bekko-embedding-v1-a8m` (~8M params, 384-dim, ~30-50MB RAM).
 - **Persistent Memory Layer**: SQLite-backed **Mnemosyne Memory** connected via Model Context Protocol (MCP).
 - **Proactive Context Injection**: Sub-15ms `PreInvocation` lifecycle hooks in `hooks.json`.
-- **Systemd Daemons**: Managed embedding microservice and automated nightly consolidation timers.
+- **Systemd Daemons**: Managed `local-model.service` microservice and automated nightly consolidation timers.
 - **Tailscale Ready**: Pre-configured exit node & Tailscale SSH runbooks.
 
 ---
@@ -33,7 +33,7 @@ A production-ready starter template for deploying **Google Antigravity (`agy`)**
 │   │   └── scripts/
 │   │       └── mnemosyne_hook.py    # Instant transcript memory lookup
 │   └── systemd/
-│       ├── jina-embeddings.service  # Systemd daemon for local embeddings
+│       ├── local-model.service      # Systemd daemon for local embeddings
 │       ├── mnemosyne-sleep.service  # Consolidation service
 │       └── mnemosyne-sleep.timer    # Daily 3:00 AM consolidation timer
 ├── scripts/
@@ -59,7 +59,7 @@ A production-ready starter template for deploying **Google Antigravity (`agy`)**
 
 3. **Verify Everything is Active**:
    ```bash
-   sudo systemctl status jina-embeddings mnemosyne-sleep.timer
+   sudo systemctl status local-model mnemosyne-sleep.timer
    curl http://127.0.0.1:8001/health
    mnemosyne stats
    ```

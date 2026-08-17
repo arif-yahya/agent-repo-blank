@@ -32,12 +32,12 @@ mkdir -p /home/ubuntu/services/local-model
 cp -r services/local-model/* /home/ubuntu/services/local-model/
 chmod +x /home/ubuntu/services/local-model/server.py /home/ubuntu/services/local-model/scripts/mnemosyne_hook.py
 
-sudo cp -p services/systemd/jina-embeddings.service /etc/systemd/system/
+sudo cp -p services/systemd/local-model.service /etc/systemd/system/
 sudo cp -p services/systemd/mnemosyne-sleep.service /etc/systemd/system/
 sudo cp -p services/systemd/mnemosyne-sleep.timer /etc/systemd/system/
 
 sudo systemctl daemon-reload
-sudo systemctl enable --now jina-embeddings
+sudo systemctl enable --now local-model
 sudo systemctl enable --now mnemosyne-sleep.timer
 
 # 5. Mnemosyne configuration (Bekko v1 a8m - 384-dim)

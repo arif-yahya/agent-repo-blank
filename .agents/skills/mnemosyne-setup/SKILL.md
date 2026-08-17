@@ -75,10 +75,10 @@ if __name__ == "__main__":
 ```
 
 ### B. Systemd Unit Setup
-Create `/etc/systemd/system/jina-embeddings.service`:
+Create `/etc/systemd/system/local-model.service`:
 ```ini
 [Unit]
-Description=Local Embeddings Service (Bekko v1 a8m / Jina v5 Nano)
+Description=Local Model Embedding Service (Bekko v1 a8m / Jina v5 Nano)
 After=network.target
 
 [Service]
@@ -97,7 +97,7 @@ WantedBy=multi-user.target
 Enable and start:
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl enable --now jina-embeddings
+sudo systemctl enable --now local-model
 ```
 
 ## 3. Configuring Mnemosyne for Local Embeddings
