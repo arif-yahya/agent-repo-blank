@@ -1,17 +1,16 @@
 [Unit]
-Description=Jina Embeddings v5 Nano ONNX Service
+Description=Local Embeddings Service (Bekko v1 a8m / Jina v5 Nano)
 After=network.target
 
 [Service]
 Type=simple
 User=ubuntu
 Group=ubuntu
-WorkingDirectory=/home/ubuntu/services/jina-v5-nano
-ExecStart=/usr/bin/python3 /home/ubuntu/services/jina-v5-nano/server.py
+WorkingDirectory=/home/ubuntu/services/local-model
+ExecStart=/usr/bin/python3 /home/ubuntu/services/local-model/server.py
 Restart=always
 RestartSec=3
 Environment=PYTHONUNBUFFERED=1
-Environment=HF_HUB_DISABLE_SYMLINKS_WARNING=1
 
 [Install]
 WantedBy=multi-user.target

@@ -4,7 +4,7 @@
     "PreInvocation": [
       {
         "type": "command",
-        "command": "/usr/bin/python3 /home/ubuntu/services/jina-v5-nano/scripts/mnemosyne_hook.py",
+        "command": "/usr/bin/python3 /home/ubuntu/services/local-model/scripts/mnemosyne_hook.py",
         "timeout": 5
       }
     ]

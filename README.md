@@ -1,7 +1,7 @@
 # Agent Blank Repository Template (`agent-repo-blank`)
 
 A production-ready starter template for deploying **Google Antigravity (`agy`)** agents with:
-- **Local Dense Embeddings**: CPU-optimized `jina-embeddings-v5-text-nano` via ONNX Runtime (~350MB RAM).
+- **Local Dense Embeddings**: Ultra-lightweight `hotchpotch/bekko-embedding-v1-a8m` (~8M params, 384-dim, ~30-50MB RAM).
 - **Persistent Memory Layer**: SQLite-backed **Mnemosyne Memory** connected via Model Context Protocol (MCP).
 - **Proactive Context Injection**: Sub-15ms `PreInvocation` lifecycle hooks in `hooks.json`.
 - **Systemd Daemons**: Managed embedding microservice and automated nightly consolidation timers.
@@ -17,17 +17,21 @@ A production-ready starter template for deploying **Google Antigravity (`agy`)**
 │   │   └── archivist/agent.md       # Memory curation and audit subagent
 │   ├── skills/
 │   │   ├── tailscale-setup/SKILL.md # Tailscale exit node & SSH runbook
-│   │   └── mnemosyne-setup/SKILL.md # Mnemosyne & local ONNX runbook
+│   │   └── mnemosyne-setup/SKILL.md # Mnemosyne & local model runbook
 │   └── hooks.json                   # PreInvocation proactive memory hook
 ├── docs/
 │   └── mnemosyne_implementation_plan.md
 ├── models/
 │   ├── README.md
-│   └── jina-v5-nano-onnx/           # Local ONNX model specifications & card
+│   ├── bekko-v1-a8m/                # Primary model card (384-dim, ~8M params)
+│   └── jina-v5-nano-onnx/           # Alternative model card (768-dim, ~239M params)
 ├── services/
-│   ├── jina-v5-nano/
-│   │   ├── server.py                # Local FastAPI ONNX microservice (port 8001)
-│   │   └── scripts/mnemosyne_hook.py# Instant transcript memory lookup
+│   ├── local-model/
+│   │   ├── server.py                # Local FastAPI microservice (port 8001)
+│   │   ├── bekko-v1-a8m/            # Model documentation
+│   │   ├── jina-v5-nano-onnx/       # Model documentation
+│   │   └── scripts/
+│   │       └── mnemosyne_hook.py    # Instant transcript memory lookup
 │   └── systemd/
 │       ├── jina-embeddings.service  # Systemd daemon for local embeddings
 │       ├── mnemosyne-sleep.service  # Consolidation service
