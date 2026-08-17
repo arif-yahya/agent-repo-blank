@@ -7,5 +7,5 @@
 
 ## 2. Infrastructure & Environment
 - **Tailscale**: Configured as an Exit Node with SSH enabled (`100.77.235.99`) and `--accept-dns=false`.
-- **Embedding Service**: Local `jina-embeddings.service` running on `http://127.0.0.1:8001/v1/embeddings` (Jina v5 Nano ONNX, 768-dim).
+- **Embedding Service**: Local `jina-embeddings.service` running on `http://127.0.0.1:8001/v1/embeddings` (**Bekko v1 a8m**, 384-dim, ~30MB RAM).
 - **Memory Storage**: Mnemosyne SQLite database at `~/.hermes/mnemosyne/data/mnemosyne.db`.
